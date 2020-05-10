@@ -1,0 +1,950 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InstagramBot - InstagramAPI</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">InstagramAPI</a>&nbsp;/&nbsp;<a href="../index.html">bot</a>&nbsp;/&nbsp;<a href="./index.html">InstagramBot</a><br/>
+<br/>
+<h1>InstagramBot</h1>
+<code><span class="identifier">@ExperimentalCoroutinesApi</span> <span class="keyword">class </span><span class="identifier">InstagramBot</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">InstagramBot</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxLikesPerDay">maxLikesPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1000<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxUnlikesPerDay">maxUnlikesPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1000<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxFollowsPerDay">maxFollowsPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;350<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxUnfollowsPerDay">maxUnfollowsPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;350<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxCommentsPerDay">maxCommentsPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;100<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxBlocksPerDay">maxBlocksPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;100<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxUnblocksPerDay">maxUnblocksPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;100<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/maxMessagesPerDay">maxMessagesPerDay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;300<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/blockedActionProtection">blockedActionProtection</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/blockedActionSleep">blockedActionSleep</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$<init>(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int)/blockedActionSleepDelay">blockedActionSleepDelay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;300<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="blocked-action-protection.html">blockedActionProtection</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">blockedActionProtection</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="blocked-action-sleep.html">blockedActionSleep</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">blockedActionSleep</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="blocked-action-sleep-delay.html">blockedActionSleepDelay</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">blockedActionSleepDelay</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="last-json.html">lastJson</a></h4>
+</td>
+<td>
+<p>Last json response</p>
+<code><span class="keyword">val </span><span class="identifier">lastJson</span><span class="symbol">: </span><span class="identifier">JsonResult</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="last-response.html">lastResponse</a></h4>
+</td>
+<td>
+<p>Last response value</p>
+<code><span class="keyword">val </span><span class="identifier">lastResponse</span><span class="symbol">: </span><span class="identifier">Response</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="max-sleep-time.html">maxSleepTime</a></h4>
+</td>
+<td>
+<p>Maximum time in seconds to sleep before performing next action</p>
+<code><span class="keyword">var </span><span class="identifier">maxSleepTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="min-sleep-time.html">minSleepTime</a></h4>
+</td>
+<td>
+<p>Minimum time in seconds to sleep before performing next action</p>
+<code><span class="keyword">var </span><span class="identifier">minSleepTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="password.html">password</a></h4>
+</td>
+<td>
+<p>Password</p>
+<code><span class="keyword">val </span><span class="identifier">password</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="status-code.html">statusCode</a></h4>
+</td>
+<td>
+<p>Status code of last response</p>
+<code><span class="keyword">val </span><span class="identifier">statusCode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="user-id.html">userId</a></h4>
+</td>
+<td>
+<p>User id</p>
+<code><span class="keyword">val </span><span class="identifier">userId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="username.html">username</a></h4>
+</td>
+<td>
+<p>Username</p>
+<code><span class="keyword">val </span><span class="identifier">username</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="approve-all-pending-follow-requests.html">approveAllPendingFollowRequests</a></h4>
+</td>
+<td>
+<p>Approve all pending follow requests</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">approveAllPendingFollowRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="approve-all-pending-thread-requests.html">approveAllPendingThreadRequests</a></h4>
+</td>
+<td>
+<p>Approve all pending message request of logged in user(self)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">approveAllPendingThreadRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="approve-pending-follow-request.html">approvePendingFollowRequest</a></h4>
+</td>
+<td>
+<p>Approve pending follow request of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">approvePendingFollowRequest</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$approvePendingFollowRequest(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="archive-medias.html">archiveMedias</a></h4>
+</td>
+<td>
+<p>Archive provided medias</p>
+<code><span class="keyword">fun </span><span class="identifier">archiveMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$archiveMedias(kotlin.collections.List((kotlin.String)))/mediaIds">mediaIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="block-users.html">blockUsers</a></h4>
+</td>
+<td>
+<p>Block provided users</p>
+<code><span class="keyword">fun </span><span class="identifier">blockUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$blockUsers(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="change-password.html">changePassword</a></h4>
+</td>
+<td>
+<p>Chnage password of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">changePassword</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$changePassword(kotlin.String)/newPassword">newPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="comment-explore-tab-medias.html">commentExploreTabMedias</a></h4>
+</td>
+<td>
+<p>Comment provided number of medias from explore page of logged in user(self) with provided comment text</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">commentExploreTabMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$commentExploreTabMedias(kotlin.String, kotlin.Int)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentExploreTabMedias(kotlin.String, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="comment-hash-tag-medias.html">commentHashTagMedias</a></h4>
+</td>
+<td>
+<p>Comment provided number of hashtag medias with provided comment text</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">commentHashTagMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$commentHashTagMedias(kotlin.String, kotlin.String, kotlin.Int)/hashTag">hashTag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentHashTagMedias(kotlin.String, kotlin.String, kotlin.Int)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentHashTagMedias(kotlin.String, kotlin.String, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="comment-location-medias.html">commentLocationMedias</a></h4>
+</td>
+<td>
+<p>Comment provided number of medias of provided location with provided comment text</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">commentLocationMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$commentLocationMedias(kotlin.String, kotlin.String, kotlin.Int)/locationName">locationName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentLocationMedias(kotlin.String, kotlin.String, kotlin.Int)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentLocationMedias(kotlin.String, kotlin.String, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="comment-medias.html">commentMedias</a></h4>
+</td>
+<td>
+<p>Comment provided medias with provided comment text</p>
+<code><span class="keyword">fun </span><span class="identifier">commentMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$commentMedias(kotlin.collections.List((kotlin.String)), kotlin.String)/mediaIds">mediaIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentMedias(kotlin.collections.List((kotlin.String)), kotlin.String)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="comment-timeline-medias.html">commentTimelineMedias</a></h4>
+</td>
+<td>
+<p>Comment provided number of medias from timeline of logged in user(self) with provided comment text</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">commentTimelineMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$commentTimelineMedias(kotlin.String, kotlin.Int)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentTimelineMedias(kotlin.String, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="comment-user-medias.html">commentUserMedias</a></h4>
+</td>
+<td>
+<p>Comment provided number of medias of provided user with provided comment text</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">commentUserMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$commentUserMedias(kotlin.String, kotlin.String, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentUserMedias(kotlin.String, kotlin.String, kotlin.Int)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$commentUserMedias(kotlin.String, kotlin.String, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="delete-comment.html">deleteComment</a></h4>
+</td>
+<td>
+<p>Delete provided comment of provided media</p>
+<code><span class="keyword">fun </span><span class="identifier">deleteComment</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$deleteComment(kotlin.String, kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$deleteComment(kotlin.String, kotlin.String)/commentId">commentId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="delete-media.html">deleteMedia</a></h4>
+</td>
+<td>
+<p>Delete provided media</p>
+<code><span class="keyword">fun </span><span class="identifier">deleteMedia</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$deleteMedia(kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="delete-medias.html">deleteMedias</a></h4>
+</td>
+<td>
+<p>Delete list of provided medias</p>
+<code><span class="keyword">fun </span><span class="identifier">deleteMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$deleteMedias(kotlin.collections.List((kotlin.String)))/mediaIds">mediaIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="download-media.html">downloadMedia</a></h4>
+</td>
+<td>
+<p>Generic method to download specified media (story, photo, video)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">downloadMedia</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$downloadMedia(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$downloadMedia(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$downloadMedia(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/folderName">folderName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$downloadMedia(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="download-user-medias.html">downloadUserMedias</a></h4>
+</td>
+<td>
+<p>Download provided numbers of media of provided users</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">downloadUserMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$downloadUserMedias(kotlin.String, kotlin.Int, kotlin.Boolean)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$downloadUserMedias(kotlin.String, kotlin.Int, kotlin.Boolean)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$downloadUserMedias(kotlin.String, kotlin.Int, kotlin.Boolean)/isSaveDescription">isSaveDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="download-user-stories.html">downloadUserStories</a></h4>
+</td>
+<td>
+<p>download stories of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">downloadUserStories</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$downloadUserStories(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="edit-profile.html">editProfile</a></h4>
+</td>
+<td>
+<p>Edit profile of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">editProfile</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$editProfile(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$editProfile(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/phone">phone</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$editProfile(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/firstName">firstName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$editProfile(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/biography">biography</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$editProfile(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/email">email</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$editProfile(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/gender">gender</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="follow-user-followers.html">followUserFollowers</a></h4>
+</td>
+<td>
+<p>Follow provided number of followers of provided user</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">followUserFollowers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/amountOfFollowers">amountOfFollowers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Int.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isUsername">isUsername</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterPrivate">isFilterPrivate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterVerified">isFilterVerified</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/fileNameToWrite">fileNameToWrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isOverwrite">isOverwrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="follow-user-following.html">followUserFollowing</a></h4>
+</td>
+<td>
+<p>Follow provided number of following of provided user</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">followUserFollowing</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/amountOfFollowing">amountOfFollowing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Int.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isUsername">isUsername</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterPrivate">isFilterPrivate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterVerified">isFilterVerified</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/fileNameToWrite">fileNameToWrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$followUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isOverwrite">isOverwrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="follow-users.html">followUsers</a></h4>
+</td>
+<td>
+<p>Follow provided number of users</p>
+<code><span class="keyword">fun </span><span class="identifier">followUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$followUsers(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-comment-liker.html">getCommentLiker</a></h4>
+</td>
+<td>
+<p>Get likers(user who liked comment) of provided comment</p>
+<code><span class="keyword">fun </span><span class="identifier">getCommentLiker</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getCommentLiker(kotlin.String)/commentId">commentId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-explore-tab-medias.html">getExploreTabMedias</a></h4>
+</td>
+<td>
+<p>Get list of medias from explore page of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getExploreTabMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getExploreTabMedias(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-explore-tab-users.html">getExploreTabUsers</a></h4>
+</td>
+<td>
+<p>Get list of users from explore page of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getExploreTabUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getExploreTabUsers(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-hash-tag-medias.html">getHashTagMedias</a></h4>
+</td>
+<td>
+<p>Get provided number of medias of provided hashtag</p>
+<code><span class="keyword">fun </span><span class="identifier">getHashTagMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getHashTagMedias(kotlin.String, kotlin.Int)/hashTag">hashTag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getHashTagMedias(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-hash-tag-users.html">getHashTagUsers</a></h4>
+</td>
+<td>
+<p>Get provided number of users of provided hashtag</p>
+<code><span class="keyword">fun </span><span class="identifier">getHashTagUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getHashTagUsers(kotlin.String, kotlin.Int)/hashTag">hashTag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getHashTagUsers(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-inbox.html">getInbox</a></h4>
+</td>
+<td>
+<p>Get inbox (Direct messages) of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getInbox</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-last-self-medias.html">getLastSelfMedias</a></h4>
+</td>
+<td>
+<p>Get provided number of medias of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getLastSelfMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getLastSelfMedias(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-last-user-medias.html">getLastUserMedias</a></h4>
+</td>
+<td>
+<p>Get provided number of medias of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">getLastUserMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getLastUserMedias(kotlin.String, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getLastUserMedias(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-liked-medias.html">getLikedMedias</a></h4>
+</td>
+<td>
+<p>Get provided number of medias liked by logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getLikedMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getLikedMedias(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-link-from-media-id.html">getLinkFromMediaId</a></h4>
+</td>
+<td>
+<p>Get media link from id</p>
+<code><span class="keyword">fun </span><span class="identifier">getLinkFromMediaId</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getLinkFromMediaId(kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-media-commenter.html">getMediaCommenter</a></h4>
+</td>
+<td>
+<p>Get provided number of Commenters(users) of provided media</p>
+<code><span class="keyword">fun </span><span class="identifier">getMediaCommenter</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getMediaCommenter(kotlin.String, kotlin.Int)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getMediaCommenter(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-media-comments.html">getMediaComments</a></h4>
+</td>
+<td>
+<p>Get provided number of comments of provided media</p>
+<code><span class="keyword">fun </span><span class="identifier">getMediaComments</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getMediaComments(kotlin.String, kotlin.Int)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getMediaComments(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-media-id-from-link.html">getMediaIdFromLink</a></h4>
+</td>
+<td>
+<p>Get media id from link</p>
+<code><span class="keyword">fun </span><span class="identifier">getMediaIdFromLink</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getMediaIdFromLink(kotlin.String)/mediaLink">mediaLink</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-media-info.html">getMediaInfo</a></h4>
+</td>
+<td>
+<p>Get media info by provided media id</p>
+<code><span class="keyword">fun </span><span class="identifier">getMediaInfo</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getMediaInfo(kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-media-liker.html">getMediaLiker</a></h4>
+</td>
+<td>
+<p>Get likers(user who liked media) of provided media</p>
+<code><span class="keyword">fun </span><span class="identifier">getMediaLiker</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getMediaLiker(kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-medias-by-location.html">getMediasByLocation</a></h4>
+</td>
+<td>
+<p>Get list of medias by provided location</p>
+<code><span class="keyword">fun </span><span class="identifier">getMediasByLocation</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getMediasByLocation(kotlin.String, kotlin.Int)/locationName">locationName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getMediasByLocation(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-muted-users.html">getMutedUsers</a></h4>
+</td>
+<td>
+<p>Get list of user that are muted by logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getMutedUsers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-pending-follow-requests.html">getPendingFollowRequests</a></h4>
+</td>
+<td>
+<p>Get all pending follow requests of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getPendingFollowRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-pending-thread-requests.html">getPendingThreadRequests</a></h4>
+</td>
+<td>
+<p>Get all pending message requests of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getPendingThreadRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-profile-data.html">getProfileData</a></h4>
+</td>
+<td>
+<p>Get profile information of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getProfileData</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-saved-medias.html">getSavedMedias</a></h4>
+</td>
+<td>
+<p>Get list of saved medias of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getSavedMedias</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-self-followers.html">getSelfFollowers</a></h4>
+</td>
+<td>
+<p>Get follower list of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getSelfFollowers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getSelfFollowers(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/amountOfFollowers">amountOfFollowers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Int.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowers(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isUsername">isUsername</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowers(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterPrivate">isFilterPrivate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowers(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterVerified">isFilterVerified</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowers(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/fileNameToWrite">fileNameToWrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowers(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isOverwrite">isOverwrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-self-following.html">getSelfFollowing</a></h4>
+</td>
+<td>
+<p>Get following list of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getSelfFollowing</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getSelfFollowing(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/amountOfFollowing">amountOfFollowing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Int.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowing(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isUsername">isUsername</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowing(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterPrivate">isFilterPrivate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowing(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterVerified">isFilterVerified</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowing(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/fileNameToWrite">fileNameToWrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getSelfFollowing(kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isOverwrite">isOverwrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-self-story-viewers.html">getSelfStoryViewers</a></h4>
+</td>
+<td>
+<p>Get list of story viewers of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getSelfStoryViewers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-timeline-medias.html">getTimelineMedias</a></h4>
+</td>
+<td>
+<p>Get timeline medias of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getTimelineMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getTimelineMedias(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;8<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-timeline-users.html">getTimelineUsers</a></h4>
+</td>
+<td>
+<p>Get list of timeline users of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getTimelineUsers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-total-self-medias.html">getTotalSelfMedias</a></h4>
+</td>
+<td>
+<p>Get total medias of logged in user(self)</p>
+<code><span class="keyword">fun </span><span class="identifier">getTotalSelfMedias</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-total-user-medias.html">getTotalUserMedias</a></h4>
+</td>
+<td>
+<p>Get total medias of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">getTotalUserMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getTotalUserMedias(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-user-followers.html">getUserFollowers</a></h4>
+</td>
+<td>
+<p>Get follower list of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">getUserFollowers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/amountOfFollowers">amountOfFollowers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Int.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isUsername">isUsername</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterPrivate">isFilterPrivate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterVerified">isFilterVerified</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/fileNameToWrite">fileNameToWrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowers(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isOverwrite">isOverwrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-user-following.html">getUserFollowing</a></h4>
+</td>
+<td>
+<p>Get following list of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">getUserFollowing</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/amountOfFollowing">amountOfFollowing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Int.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isUsername">isUsername</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterPrivate">isFilterPrivate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFilterVerified">isFilterVerified</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/fileNameToWrite">fileNameToWrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserFollowing(kotlin.String, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isOverwrite">isOverwrite</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-user-info-by-name.html">getUserInfoByName</a></h4>
+</td>
+<td>
+<p>Get user information about provided username</p>
+<code><span class="keyword">fun </span><span class="identifier">getUserInfoByName</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUserInfoByName(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-user-liker.html">getUserLiker</a></h4>
+</td>
+<td>
+<p>Get likers(user who liked recent medias) of provided users</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getUserLiker</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUserLiker(kotlin.String, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUserLiker(kotlin.String, kotlin.Int)/mediaAmount">mediaAmount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-users-by-location.html">getUsersByLocation</a></h4>
+</td>
+<td>
+<p>Get list of users by provided location</p>
+<code><span class="keyword">fun </span><span class="identifier">getUsersByLocation</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUsersByLocation(kotlin.String, kotlin.Int)/locationName">locationName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUsersByLocation(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-users-stories.html">getUsersStories</a></h4>
+</td>
+<td>
+<p>Get all info about stories of provided users</p>
+<code><span class="keyword">fun </span><span class="identifier">getUsersStories</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUsersStories(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-users-stories-items.html">getUsersStoriesItems</a></h4>
+</td>
+<td>
+<p>Get all items about stories of provided users individually</p>
+<code><span class="keyword">fun </span><span class="identifier">getUsersStoriesItems</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUsersStoriesItems(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-users-tagged-in-location.html">getUsersTaggedInLocation</a></h4>
+</td>
+<td>
+<p>Get list of users tagged in provided location</p>
+<code><span class="keyword">fun </span><span class="identifier">getUsersTaggedInLocation</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUsersTaggedInLocation(kotlin.String, kotlin.Int)/locationName">locationName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$getUsersTaggedInLocation(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-user-stories-u-r-l.html">getUserStoriesURL</a></h4>
+</td>
+<td>
+<p>Get url of stories of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">getUserStoriesURL</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUserStoriesURL(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-user-tag-medias.html">getUserTagMedias</a></h4>
+</td>
+<td>
+<p>Get medias tagged to provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">getUserTagMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$getUserTagMedias(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hide-all-pending-thread-requests.html">hideAllPendingThreadRequests</a></h4>
+</td>
+<td>
+<p>Hide all pending message request of logged in user(self)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">hideAllPendingThreadRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-media-commented.html">isMediaCommented</a></h4>
+</td>
+<td>
+<p>Check whether media is commented by logged in user(self) or not</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">isMediaCommented</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$isMediaCommented(kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-comment.html">likeComment</a></h4>
+</td>
+<td>
+<p>Like provided comment</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeComment</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeComment(kotlin.String)/commentId">commentId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-explore-tab-medias.html">likeExploreTabMedias</a></h4>
+</td>
+<td>
+<p>Like provided numbers of media appears in explore tab of logged in user(self)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeExploreTabMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeExploreTabMedias(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-hash-tag-medias.html">likeHashTagMedias</a></h4>
+</td>
+<td>
+<p>Like provided numbers of media of provided hashtag</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeHashTagMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeHashTagMedias(kotlin.String, kotlin.Int)/hashTag">hashTag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeHashTagMedias(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-location-medias.html">likeLocationMedias</a></h4>
+</td>
+<td>
+<p>Like provided numbers of media of provided location</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeLocationMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeLocationMedias(kotlin.String, kotlin.Int)/locationName">locationName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeLocationMedias(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-media-comments.html">likeMediaComments</a></h4>
+</td>
+<td>
+<p>Like provided number of comments of provided media</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeMediaComments</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeMediaComments(kotlin.String, kotlin.Int)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeMediaComments(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-medias.html">likeMedias</a></h4>
+</td>
+<td>
+<p>Generic function to perform like action on provided type of media</p>
+<code><span class="keyword">fun </span><span class="identifier">likeMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeMedias(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String, kotlin.String, kotlin.String)/mediaIds">mediaIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeMedias(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String, kotlin.String, kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeMedias(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String, kotlin.String, kotlin.String)/userId">userId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeMedias(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String, kotlin.String, kotlin.String)/hashTagName">hashTagName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeMedias(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String, kotlin.String, kotlin.String)/hashTagId">hashTagId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-timeline-medias.html">likeTimelineMedias</a></h4>
+</td>
+<td>
+<p>Like provided numbers of medias appear on timeline of logged in user(self)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeTimelineMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeTimelineMedias(kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-user-followers.html">likeUserFollowers</a></h4>
+</td>
+<td>
+<p>Like provided numbers of media of followers of provided user</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeUserFollowers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeUserFollowers(kotlin.String, kotlin.Int, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeUserFollowers(kotlin.String, kotlin.Int, kotlin.Int)/amountOfFollowers">amountOfFollowers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeUserFollowers(kotlin.String, kotlin.Int, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-user-following.html">likeUserFollowing</a></h4>
+</td>
+<td>
+<p>Like provided numbers of media of following of provided user</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeUserFollowing</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeUserFollowing(kotlin.String, kotlin.Int, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeUserFollowing(kotlin.String, kotlin.Int, kotlin.Int)/amountOfFollowing">amountOfFollowing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeUserFollowing(kotlin.String, kotlin.Int, kotlin.Int)/amountOfMedias">amountOfMedias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="like-user-medias.html">likeUserMedias</a></h4>
+</td>
+<td>
+<p>Like provided numbers of media of provided user</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">likeUserMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$likeUserMedias(kotlin.String, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$likeUserMedias(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="login.html">login</a></h4>
+</td>
+<td>
+<p>Login into instagram with provided username/password and interactively handle all scenario of Two factor authentication code and/or login confirmation by showing options in prompt.</p>
+<code><span class="keyword">fun </span><span class="identifier">login</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$login(kotlin.Boolean)/forceLogin">forceLogin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="logout.html">logout</a></h4>
+</td>
+<td>
+<p>Logout from Instagram</p>
+<code><span class="keyword">fun </span><span class="identifier">logout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="prepare.html">prepare</a></h4>
+</td>
+<td>
+<p>Prepare the client before performing login</p>
+<code><span class="keyword">fun </span><span class="identifier">prepare</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$prepare(kotlin.String, kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$prepare(kotlin.String, kotlin.String)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reject-all-pending-follow-requests.html">rejectAllPendingFollowRequests</a></h4>
+</td>
+<td>
+<p>Reject all pending follow requests</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">rejectAllPendingFollowRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reject-all-pending-thread-requests.html">rejectAllPendingThreadRequests</a></h4>
+</td>
+<td>
+<p>Reject all pending message request of logged in user(self)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">rejectAllPendingThreadRequests</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reject-pending-follow-request.html">rejectPendingFollowRequest</a></h4>
+</td>
+<td>
+<p>Reject pending follow request of provided user</p>
+<code><span class="keyword">fun </span><span class="identifier">rejectPendingFollowRequest</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$rejectPendingFollowRequest(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reply-to-comment.html">replyToComment</a></h4>
+</td>
+<td>
+<p>Reply to provided comment of provided media</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">replyToComment</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$replyToComment(kotlin.String, kotlin.String, kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$replyToComment(kotlin.String, kotlin.String, kotlin.String)/parentCommentId">parentCommentId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$replyToComment(kotlin.String, kotlin.String, kotlin.String)/commentText">commentText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="search-users.html">searchUsers</a></h4>
+</td>
+<td>
+<p>Get(search) list of users similar to provided username</p>
+<code><span class="keyword">fun </span><span class="identifier">searchUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$searchUsers(kotlin.String)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">JSONObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-hash-tag.html">sendHashTag</a></h4>
+</td>
+<td>
+<p>Send direct hashtag to users (List of single user will send hashtag to one specified user,
+list of multiple users will create group and send hashtag to them)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">sendHashTag</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendHashTag(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/hashTag">hashTag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendHashTag(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendHashTag(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendHashTag(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/threadId">threadId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-hash-tag-to-users-individually.html">sendHashTagToUsersIndividually</a></h4>
+</td>
+<td>
+<p>Send direct hashtag to provided users (individually)</p>
+<code><span class="keyword">fun </span><span class="identifier">sendHashTagToUsersIndividually</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendHashTagToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/hashTag">hashTag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendHashTagToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendHashTagToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-like.html">sendLike</a></h4>
+</td>
+<td>
+<p>Send direct like to users (List of single user will send like to one specified user,
+list of multiple users will create group and send like to them)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">sendLike</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendLike(kotlin.collections.List((kotlin.String)), kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendLike(kotlin.collections.List((kotlin.String)), kotlin.String)/threadId">threadId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-like-to-users-individually.html">sendLikeToUsersIndividually</a></h4>
+</td>
+<td>
+<p>Send direct like to provided users (individually)</p>
+<code><span class="keyword">fun </span><span class="identifier">sendLikeToUsersIndividually</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendLikeToUsersIndividually(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-media.html">sendMedia</a></h4>
+</td>
+<td>
+<p>Send direct media to users (List of single user will send media to one specified user,
+list of multiple users will create group and send media to them)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">sendMedia</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendMedia(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMedia(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMedia(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMedia(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/threadId">threadId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-medias-to-users-individually.html">sendMediasToUsersIndividually</a></h4>
+</td>
+<td>
+<p>Send direct media to provided users (individually)</p>
+<code><span class="keyword">fun </span><span class="identifier">sendMediasToUsersIndividually</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendMediasToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMediasToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMediasToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-message.html">sendMessage</a></h4>
+</td>
+<td>
+<p>Send direct messages to users (List of single user will send message to one specified user,
+list of multiple users will create group and send message to them)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">sendMessage</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendMessage(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMessage(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMessage(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/threadId">threadId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-messages-to-users-individually.html">sendMessagesToUsersIndividually</a></h4>
+</td>
+<td>
+<p>Send direct messages to provided users (individually)</p>
+<code><span class="keyword">fun </span><span class="identifier">sendMessagesToUsersIndividually</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendMessagesToUsersIndividually(kotlin.collections.List((kotlin.String)), kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendMessagesToUsersIndividually(kotlin.collections.List((kotlin.String)), kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-photo.html">sendPhoto</a></h4>
+</td>
+<td>
+<p>Send direct photo to users (List of single user will send photo to one specified user,
+list of multiple users will create group and send photo to them)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">sendPhoto</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendPhoto(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendPhoto(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/filePath">filePath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendPhoto(kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/threadId">threadId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-photo-to-users-individually.html">sendPhotoToUsersIndividually</a></h4>
+</td>
+<td>
+<p>Send direct photo to provided users (individually)</p>
+<code><span class="keyword">fun </span><span class="identifier">sendPhotoToUsersIndividually</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendPhotoToUsersIndividually(kotlin.collections.List((kotlin.String)), kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendPhotoToUsersIndividually(kotlin.collections.List((kotlin.String)), kotlin.String)/filePath">filePath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-profile.html">sendProfile</a></h4>
+</td>
+<td>
+<p>Send direct profile to users (List of single user will send profile to one specified user,
+list of multiple users will create group and send profile to them)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">sendProfile</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendProfile(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/profileId">profileId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendProfile(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendProfile(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendProfile(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String, kotlin.String)/threadId">threadId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-profile-to-users-individually.html">sendProfileToUsersIndividually</a></h4>
+</td>
+<td>
+<p>Send direct profile to provided users (individually)</p>
+<code><span class="keyword">fun </span><span class="identifier">sendProfileToUsersIndividually</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$sendProfileToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/profileId">profileId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendProfileToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$sendProfileToUsersIndividually(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-account-private.html">setAccountPrivate</a></h4>
+</td>
+<td>
+<p>Set logged in user's account private</p>
+<code><span class="keyword">fun </span><span class="identifier">setAccountPrivate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-account-public.html">setAccountPublic</a></h4>
+</td>
+<td>
+<p>Set logged in user's account public</p>
+<code><span class="keyword">fun </span><span class="identifier">setAccountPublic</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unarchive-medias.html">unarchiveMedias</a></h4>
+</td>
+<td>
+<p>Un-archive provided medias</p>
+<code><span class="keyword">fun </span><span class="identifier">unarchiveMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unarchiveMedias(kotlin.collections.List((kotlin.String)))/mediaIds">mediaIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unblock-users.html">unblockUsers</a></h4>
+</td>
+<td>
+<p>Un-block provided users</p>
+<code><span class="keyword">fun </span><span class="identifier">unblockUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unblockUsers(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unfollow-non-followers.html">unfollowNonFollowers</a></h4>
+</td>
+<td>
+<p>Unfollow users who are not following back to logged in user(self)</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">unfollowNonFollowers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unfollow-users.html">unfollowUsers</a></h4>
+</td>
+<td>
+<p>Unfollow provided number of users</p>
+<code><span class="keyword">fun </span><span class="identifier">unfollowUsers</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unfollowUsers(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unlike-comment.html">unlikeComment</a></h4>
+</td>
+<td>
+<p>Unlike(previously liked) provided media comment</p>
+<code><span class="keyword">fun </span><span class="identifier">unlikeComment</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unlikeComment(kotlin.String)/commentId">commentId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unlike-media-comments.html">unlikeMediaComments</a></h4>
+</td>
+<td>
+<p>Unlike(previously liked) comment of provided media</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">unlikeMediaComments</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unlikeMediaComments(kotlin.String)/mediaId">mediaId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unlike-medias.html">unlikeMedias</a></h4>
+</td>
+<td>
+<p>Unlike(previously liked) medias</p>
+<code><span class="keyword">fun </span><span class="identifier">unlikeMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unlikeMedias(kotlin.collections.List((kotlin.String)))/mediaIds">mediaIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unlike-user-medias.html">unlikeUserMedias</a></h4>
+</td>
+<td>
+<p>Unlike(previously liked) provided number of medias of provided user</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">unlikeUserMedias</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$unlikeUserMedias(kotlin.String, kotlin.Int)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="bot.InstagramBot$unlikeUserMedias(kotlin.String, kotlin.Int)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="watch-users-stories.html">watchUsersStories</a></h4>
+</td>
+<td>
+<p>Watch stories of provided users</p>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">watchUsersStories</span><span class="symbol">(</span><span class="identifier" id="bot.InstagramBot$watchUsersStories(kotlin.collections.List((kotlin.String)))/usernames">usernames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
