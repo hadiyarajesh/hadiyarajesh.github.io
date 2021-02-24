@@ -1,0 +1,9 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:////PointingToDeclaration/[root]/index.html
+$dokka.location://main/#/PointingToDeclaration/[root]/main.html
+$dokka.location:/Credentials///PointingToDeclaration/[root]/-credentials/index.html
+$dokka.location:/Credentials/PASSWORD/#/PointingToDeclaration/[root]/-credentials/-p-a-s-s-w-o-r-d.html
+$dokka.location:/Credentials/USERNAME/#/PointingToDeclaration/[root]/-credentials/-u-s-e-r-n-a-m-e.html
+bot
+
